@@ -1,0 +1,23 @@
+[MAIN]
+# Folders Pylint should never scan
+ignore=.venv,venv,__pycache__,static,templates,test_images
+
+# Let Pylint import the project's own modules (app.py, model.py) from tests/
+init-hook="import sys; sys.path.insert(0, '.')"
+
+# TensorFlow/Keras are large C-extension packages; load them for accurate checks
+extension-pkg-allow-list=tensorflow,keras,numpy
+
+[MESSAGES CONTROL]
+# Keep every check ON except one that does not fit pytest:
+# pytest fixtures are passed to tests by name, which Pylint reports
+# as "redefined-outer-name" even though it is the intended pattern.
+disable=redefined-outer-name
+
+[FORMAT]
+# Slightly longer than the 79-character default for readable test names
+max-line-length=100
+
+[REPORTS]
+# Print the overall score at the end of every run
+score=yes
