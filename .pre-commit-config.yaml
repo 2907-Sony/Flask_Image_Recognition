@@ -1,0 +1,22 @@
+# pre-commit runs these checks automatically every time you run "git commit".
+# If a check fails, the commit is stopped so you can fix the problem first.
+repos:
+  # Ready-made hooks maintained by the pre-commit project
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace      # removes spaces at the end of lines
+      - id: end-of-file-fixer        # makes every file end with one newline
+      - id: check-yaml               # catches broken YAML (e.g. the CI workflow)
+      - id: check-added-large-files  # stops accidental commits of big files
+
+  # Run the project's own Pylint (from the active Python environment) on staged
+  # Python files. --fail-under=9 matches the THRESHOLD used in lint.py.
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args: ["--fail-under=9"]
