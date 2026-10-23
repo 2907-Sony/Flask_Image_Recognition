@@ -1,0 +1,17 @@
+# Virtual environments (local to each machine, never commit)
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Test and tool caches
+.pytest_cache/
+
+# IDE settings
+.idea/
+.vscode/
+
+# macOS system files
+.DS_Store
