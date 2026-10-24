@@ -44,3 +44,6 @@ jobs:
 
       - name: Analyse the code with Pylint
         run: python lint.py
+
+      - name: Run tests with pytest
+        run: pytest
