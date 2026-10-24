@@ -25,4 +25,4 @@ def preprocess_img(img_path):
 def predict_result(predict):
     """Run the model on a preprocessed image and return the predicted digit."""
     pred = model.predict(predict)
-    return np.argmax(pred[0], axis=-1)
+    return int(np.argmax(pred[0], axis=-1))
